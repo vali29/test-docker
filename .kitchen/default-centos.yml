@@ -1,0 +1,9 @@
+---
+username: kitchen
+ssh_key: "/root/cookbooks/apache/.kitchen/docker_id_rsa"
+image_id: 9665248a4fc0
+container_id: 5637a28d8bf3dd03b9ce670f46471838aaca7f2e6ae6586e3acc813a67822657
+hostname: localhost
+port: 32777
+last_action: verify
+last_error: 

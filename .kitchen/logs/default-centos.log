@@ -1,0 +1,6 @@
+I, [2017-10-08T01:19:05.386052 #10701]  INFO -- default-centos: -----> Setting up <default-centos>...
+I, [2017-10-08T01:19:05.387898 #10701]  INFO -- default-centos: Finished setting up <default-centos> (0m0.00s).
+I, [2017-10-08T01:19:05.388354 #10701]  INFO -- default-centos: -----> Verifying <default-centos>...
+I, [2017-10-08T01:19:05.389773 #10701]  INFO -- default-centos: Preparing files for transfer
+I, [2017-10-08T01:19:05.389971 #10701]  INFO -- default-centos: Transferring files to <default-centos>
+I, [2017-10-08T01:19:05.391078 #10701]  INFO -- default-centos: Finished verifying <default-centos> (0m0.00s).

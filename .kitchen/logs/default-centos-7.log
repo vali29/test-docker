@@ -1,0 +1,1 @@
+F, [2017-10-07T17:08:17.357174 #12758] FATAL -- default-centos-7: The `berkshelf' gem is missing and must be installed or cannot be properly activated. Run `gem install berkshelf` or add the following to your Gemfile if you are using Bundler: `gem 'berkshelf'`.

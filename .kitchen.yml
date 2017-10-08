@@ -1,0 +1,40 @@
+---
+driver:
+  name: docker 
+  gui: true
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  #always_update_cookbooks: true
+
+driver_config:
+#  hostname: kitchen
+#  use_sudo: true
+  socket: <%= ENV['DOCKER_HOST'] %>
+  privileged: true
+  provision_command:
+    - echo "SSHD_OPTS='-o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid'" > /etc/default/ssh
+  run_command: /sbin/init
+  cap_add:
+    - ALL
+    - SYS_ADMIN
+    - NET_ADMIN
+    - NET_BIND_SERVICE
+    - NET_BROADCAST
+
+#verifier:
+ # name: inspec
+
+platforms:
+  - name: centos
+
+suites:
+  - name: default
+    run_list:
+      - recipe[apache::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
