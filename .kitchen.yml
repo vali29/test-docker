@@ -29,7 +29,9 @@ driver_config:
 
 platforms:
   - name: centos
-
+   # transport:
+#	    username: docker
+#	    password: docker
 suites:
   - name: default
     run_list:

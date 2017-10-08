@@ -10,3 +10,17 @@ service 'httpd' do
 
 end
 
+file '/etc/motd' do
+        content  " Property of Mastan \n
+
+        IPADDRESS: #{node['ipaddress']}
+        HOSTNAME: #{node['hostname']}
+        INMEMORY: #{node['memory'] ['total']}
+        CPU: #{node['cpu'] ['0'] ['mhz']}
+        \n "
+
+        mode '0644'
+        owner 'root'
+        group 'root'
+end
+

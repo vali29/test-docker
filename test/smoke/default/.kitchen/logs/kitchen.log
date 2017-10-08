@@ -1,0 +1,32 @@
+I, [2017-10-08T14:18:41.347718 #3109]  INFO -- Kitchen: -----> Starting Kitchen (v1.18.0)
+E, [2017-10-08T14:18:41.347936 #3109] ERROR -- Kitchen: ------Exception-------
+E, [2017-10-08T14:18:41.348433 #3109] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2017-10-08T14:18:41.348480 #3109] ERROR -- Kitchen: Message: Kitchen YAML file /root/cookbooks/apache/test/smoke/default/.kitchen.yml does not exist.
+E, [2017-10-08T14:18:41.348497 #3109] ERROR -- Kitchen: ----------------------
+E, [2017-10-08T14:18:41.348513 #3109] ERROR -- Kitchen: ------Backtrace-------
+E, [2017-10-08T14:18:41.348522 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/loader/yaml.rb:65:in `read'
+E, [2017-10-08T14:18:41.348532 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/config.rb:147:in `data'
+E, [2017-10-08T14:18:41.348541 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/config.rb:126:in `suites'
+E, [2017-10-08T14:18:41.348550 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/config.rb:177:in `filter_instances'
+E, [2017-10-08T14:18:41.348559 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/config.rb:136:in `build_instances'
+E, [2017-10-08T14:18:41.348571 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/config.rb:112:in `instances'
+E, [2017-10-08T14:18:41.348581 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/command.rb:112:in `filtered_instances'
+E, [2017-10-08T14:18:41.348596 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/command.rb:142:in `parse_subcommand'
+E, [2017-10-08T14:18:41.348605 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/command/action.rb:35:in `block in call'
+E, [2017-10-08T14:18:41.348614 #3109] ERROR -- Kitchen: /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2017-10-08T14:18:41.348623 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/command/action.rb:34:in `call'
+E, [2017-10-08T14:18:41.348632 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/cli.rb:53:in `perform'
+E, [2017-10-08T14:18:41.348641 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/cli.rb:187:in `block (2 levels) in <class:CLI>'
+E, [2017-10-08T14:18:41.348650 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2017-10-08T14:18:41.348659 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2017-10-08T14:18:41.348670 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2017-10-08T14:18:41.348680 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2017-10-08T14:18:41.348689 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2017-10-08T14:18:41.348705 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2017-10-08T14:18:41.348715 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2017-10-08T14:18:41.348724 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/gems/test-kitchen-1.18.0/bin/kitchen:13:in `<top (required)>'
+E, [2017-10-08T14:18:41.348733 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/bin/kitchen:23:in `load'
+E, [2017-10-08T14:18:41.348742 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/bin/kitchen:23:in `<main>'
+E, [2017-10-08T14:18:41.348753 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/bin/ruby_executable_hooks:15:in `eval'
+E, [2017-10-08T14:18:41.348768 #3109] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-2.3.4/bin/ruby_executable_hooks:15:in `<main>'
+E, [2017-10-08T14:18:41.348778 #3109] ERROR -- Kitchen: ----End Backtrace-----

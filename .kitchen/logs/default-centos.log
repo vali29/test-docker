@@ -1,6 +1,147 @@
-I, [2017-10-08T01:19:05.386052 #10701]  INFO -- default-centos: -----> Setting up <default-centos>...
-I, [2017-10-08T01:19:05.387898 #10701]  INFO -- default-centos: Finished setting up <default-centos> (0m0.00s).
-I, [2017-10-08T01:19:05.388354 #10701]  INFO -- default-centos: -----> Verifying <default-centos>...
-I, [2017-10-08T01:19:05.389773 #10701]  INFO -- default-centos: Preparing files for transfer
-I, [2017-10-08T01:19:05.389971 #10701]  INFO -- default-centos: Transferring files to <default-centos>
-I, [2017-10-08T01:19:05.391078 #10701]  INFO -- default-centos: Finished verifying <default-centos> (0m0.00s).
+I, [2017-10-08T15:58:25.450652 #7344]  INFO -- default-centos: -----> Creating <default-centos>...
+I, [2017-10-08T15:58:25.509775 #7344]  INFO -- default-centos: Sending build context to Docker daemon  221.7kB
+I, [2017-10-08T15:58:25.551685 #7344]  INFO -- default-centos: Step 1/17 : FROM centos
+I, [2017-10-08T15:58:25.551787 #7344]  INFO -- default-centos:  ---> 196e0ce0c9fb
+I, [2017-10-08T15:58:25.551820 #7344]  INFO -- default-centos: Step 2/17 : ENV container docker
+I, [2017-10-08T15:58:25.551841 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.551860 #7344]  INFO -- default-centos:  ---> 1d4efe36b991
+I, [2017-10-08T15:58:25.551881 #7344]  INFO -- default-centos: Step 3/17 : RUN yum clean all
+I, [2017-10-08T15:58:25.551900 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.551918 #7344]  INFO -- default-centos:  ---> 9b962485309b
+I, [2017-10-08T15:58:25.551937 #7344]  INFO -- default-centos: Step 4/17 : RUN yum install -y sudo openssh-server openssh-clients which curl
+I, [2017-10-08T15:58:25.551958 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.551975 #7344]  INFO -- default-centos:  ---> 636d26b0d7d7
+I, [2017-10-08T15:58:25.551992 #7344]  INFO -- default-centos: Step 5/17 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+I, [2017-10-08T15:58:25.552012 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.552031 #7344]  INFO -- default-centos:  ---> f09cfd48d833
+I, [2017-10-08T15:58:25.552049 #7344]  INFO -- default-centos: Step 6/17 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+I, [2017-10-08T15:58:25.552066 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.552084 #7344]  INFO -- default-centos:  ---> 50513fdc8b65
+I, [2017-10-08T15:58:25.552106 #7344]  INFO -- default-centos: Step 7/17 : RUN if ! getent passwd kitchen; then                 useradd -d /home/kitchen -m -s /bin/bash -p '*' kitchen;               fi
+I, [2017-10-08T15:58:25.552124 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.552141 #7344]  INFO -- default-centos:  ---> df11eb635de4
+I, [2017-10-08T15:58:25.552158 #7344]  INFO -- default-centos: Step 8/17 : RUN echo "kitchen ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+I, [2017-10-08T15:58:25.552175 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.552193 #7344]  INFO -- default-centos:  ---> dc828687062e
+I, [2017-10-08T15:58:25.552211 #7344]  INFO -- default-centos: Step 9/17 : RUN echo "Defaults !requiretty" >> /etc/sudoers
+I, [2017-10-08T15:58:25.557597 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.557673 #7344]  INFO -- default-centos:  ---> 316d8cca60b9
+I, [2017-10-08T15:58:25.557705 #7344]  INFO -- default-centos: Step 10/17 : RUN mkdir -p /home/kitchen/.ssh
+I, [2017-10-08T15:58:25.557728 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.557750 #7344]  INFO -- default-centos:  ---> c9366722b7e6
+I, [2017-10-08T15:58:25.557794 #7344]  INFO -- default-centos: Step 11/17 : RUN chown -R kitchen /home/kitchen/.ssh
+I, [2017-10-08T15:58:25.557822 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.557843 #7344]  INFO -- default-centos:  ---> 88e1f44784fe
+I, [2017-10-08T15:58:25.557865 #7344]  INFO -- default-centos: Step 12/17 : RUN chmod 0700 /home/kitchen/.ssh
+I, [2017-10-08T15:58:25.557889 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.557909 #7344]  INFO -- default-centos:  ---> 9de145b667e2
+I, [2017-10-08T15:58:25.557930 #7344]  INFO -- default-centos: Step 13/17 : RUN touch /home/kitchen/.ssh/authorized_keys
+I, [2017-10-08T15:58:25.557950 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.557972 #7344]  INFO -- default-centos:  ---> 56ffb570db64
+I, [2017-10-08T15:58:25.557998 #7344]  INFO -- default-centos: Step 14/17 : RUN chown kitchen /home/kitchen/.ssh/authorized_keys
+I, [2017-10-08T15:58:25.558020 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.558046 #7344]  INFO -- default-centos:  ---> 822ea85d5add
+I, [2017-10-08T15:58:25.558086 #7344]  INFO -- default-centos: Step 15/17 : RUN chmod 0600 /home/kitchen/.ssh/authorized_keys
+I, [2017-10-08T15:58:25.558114 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.558140 #7344]  INFO -- default-centos:  ---> 53be24966302
+I, [2017-10-08T15:58:25.558165 #7344]  INFO -- default-centos: Step 16/17 : RUN echo "SSHD_OPTS='-o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid'" > /etc/default/ssh
+I, [2017-10-08T15:58:25.564466 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.564520 #7344]  INFO -- default-centos:  ---> d6359afa8968
+I, [2017-10-08T15:58:25.564537 #7344]  INFO -- default-centos: Step 17/17 : RUN echo ssh-rsa\ AAAAB3NzaC1yc2EAAAADAQABAAABAQCb2kmqwbdFPJsXfJfoNvhfGvuntCpscg5EEbmZ2iX6VGHp0uK6O\+goIX4EeZqY\+dMf9IyJIG4rmWq31CcDW9pWIEbQhLmiRNVmr2sLGWwoN\+VzI/Bd4nTYCUVnPM8TouXRQ7AouU8rAiRUB6i6\+ud/CvVO0zcF7ytI3DwQa5F1CtBt0YXap/ndtDOzEU5COBeqw1tRnikx04Gl9FV8FF7bht7AP2VyyjjsTKWhriYF0paTnFMe3mHvndofmNDXWtG4D8Rle0T1dLrE\+Emqj9/DNMJ0NtxZ/RjcsWjAc02OV8p/og0AjQLKMPLEhB6IFStHwc/UEgCDT388p5ZFTsrF\ kitchen_docker_key >> /home/kitchen/.ssh/authorized_keys
+I, [2017-10-08T15:58:25.564558 #7344]  INFO -- default-centos:  ---> Using cache
+I, [2017-10-08T15:58:25.564571 #7344]  INFO -- default-centos:  ---> 9665248a4fc0
+I, [2017-10-08T15:58:25.564582 #7344]  INFO -- default-centos: Successfully built 9665248a4fc0
+I, [2017-10-08T15:58:25.623535 #7344]  INFO -- default-centos: e93a5f796b890938d69a6d3823b6493289a2f29b0fc20d749a46645a9f70b25f
+I, [2017-10-08T15:58:25.863132 #7344]  INFO -- default-centos: 0.0.0.0:32770
+I, [2017-10-08T15:58:25.880352 #7344]  INFO -- default-centos: Waiting for SSH service on localhost:32770, retrying in 3 seconds
+I, [2017-10-08T15:58:30.580512 #7344]  INFO -- default-centos: [SSH] Established
+I, [2017-10-08T15:58:30.583034 #7344]  INFO -- default-centos: Finished creating <default-centos> (0m5.13s).
+I, [2017-10-08T15:58:30.583209 #7344]  INFO -- default-centos: -----> Converging <default-centos>...
+I, [2017-10-08T15:58:30.585724 #7344]  INFO -- default-centos: Preparing files for transfer
+I, [2017-10-08T15:58:30.585952 #7344]  INFO -- default-centos: Preparing dna.json
+I, [2017-10-08T15:58:30.586902 #7344]  INFO -- default-centos: Resolving cookbook dependencies with Berkshelf 6.3.1...
+I, [2017-10-08T15:58:30.630239 #7344]  INFO -- default-centos: Removing non-cookbook files before transfer
+I, [2017-10-08T15:58:30.633166 #7344]  INFO -- default-centos: Preparing validation.pem
+I, [2017-10-08T15:58:30.636681 #7344]  INFO -- default-centos: Preparing client.rb
+I, [2017-10-08T15:58:31.577884 #7344]  INFO -- default-centos: -----> Installing Chef Omnibus (install only if missing)
+I, [2017-10-08T15:58:31.581797 #7344]  INFO -- default-centos: Downloading https://omnitruck.chef.io/install.sh to file /tmp/install.sh
+I, [2017-10-08T15:58:31.581861 #7344]  INFO -- default-centos: Trying curl...
+I, [2017-10-08T15:58:32.412648 #7344]  INFO -- default-centos: Download complete.
+I, [2017-10-08T15:58:32.443785 #7344]  INFO -- default-centos: el 7 x86_64
+I, [2017-10-08T15:58:32.443846 #7344]  INFO -- default-centos: Getting information for chef stable  for el...
+I, [2017-10-08T15:58:32.443867 #7344]  INFO -- default-centos: downloading https://omnitruck.chef.io/stable/chef/metadata?v=&p=el&pv=7&m=x86_64
+I, [2017-10-08T15:58:32.443904 #7344]  INFO -- default-centos:   to file /tmp/install.sh.116/metadata.txt
+I, [2017-10-08T15:58:32.443916 #7344]  INFO -- default-centos: trying curl...
+I, [2017-10-08T15:58:32.908398 #7344]  INFO -- default-centos: sha1	57baf06b47d129dbe6882501c9e9c1c4397fa77d
+I, [2017-10-08T15:58:32.908456 #7344]  INFO -- default-centos: sha256	e19f220be2f001ba9e47ad1fdf5d066052d994d0f5aa6ebd1927ceafd3aa60fb
+I, [2017-10-08T15:58:32.908984 #7344]  INFO -- default-centos: url	https://packages.chef.io/files/stable/chef/13.5.3/el/7/chef-13.5.3-1.el7.x86_64.rpm
+I, [2017-10-08T15:58:32.909009 #7344]  INFO -- default-centos: version	13.5.3
+I, [2017-10-08T15:58:32.910534 #7344]  INFO -- default-centos: downloaded metadata file looks valid...
+I, [2017-10-08T15:58:32.927200 #7344]  INFO -- default-centos: downloading https://packages.chef.io/files/stable/chef/13.5.3/el/7/chef-13.5.3-1.el7.x86_64.rpm
+I, [2017-10-08T15:58:32.927256 #7344]  INFO -- default-centos:   to file /tmp/install.sh.116/chef-13.5.3-1.el7.x86_64.rpm
+I, [2017-10-08T15:58:32.927272 #7344]  INFO -- default-centos: trying curl...
+I, [2017-10-08T15:58:40.742452 #7344]  INFO -- default-centos: Comparing checksum with sha256sum...
+I, [2017-10-08T15:58:40.918741 #7344]  INFO -- default-centos: 
+I, [2017-10-08T15:58:40.918796 #7344]  INFO -- default-centos: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2017-10-08T15:58:40.918880 #7344]  INFO -- default-centos: 
+I, [2017-10-08T15:58:40.918900 #7344]  INFO -- default-centos: You are installing an omnibus package without a version pin.  If you are installing
+I, [2017-10-08T15:58:40.918917 #7344]  INFO -- default-centos: on production servers via an automated process this is DANGEROUS and you will
+I, [2017-10-08T15:58:40.918929 #7344]  INFO -- default-centos: be upgraded without warning on new releases, even to new major releases.
+I, [2017-10-08T15:58:40.918940 #7344]  INFO -- default-centos: Letting the version float is only appropriate in desktop, test, development or
+I, [2017-10-08T15:58:40.918950 #7344]  INFO -- default-centos: CI/CD environments.
+I, [2017-10-08T15:58:40.918973 #7344]  INFO -- default-centos: 
+I, [2017-10-08T15:58:40.918985 #7344]  INFO -- default-centos: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2017-10-08T15:58:40.918995 #7344]  INFO -- default-centos: 
+I, [2017-10-08T15:58:40.919004 #7344]  INFO -- default-centos: Installing chef 
+I, [2017-10-08T15:58:40.919014 #7344]  INFO -- default-centos: installing with rpm...
+I, [2017-10-08T15:58:40.973803 #7344]  INFO -- default-centos: warning: /tmp/install.sh.116/chef-13.5.3-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+I, [2017-10-08T15:58:41.615108 #7344]  INFO -- default-centos: Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+I, [2017-10-08T15:58:41.629274 #7344]  INFO -- default-centos: Updating / installing...
+I, [2017-10-08T15:58:48.462168 #7344]  INFO -- default-centos:    1:chef-13.5.3-1.el7                                                  (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 52%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+I, [2017-10-08T15:58:48.828790 #7344]  INFO -- default-centos: Thank you for installing Chef!
+I, [2017-10-08T15:58:48.907810 #7344]  INFO -- default-centos: Transferring files to <default-centos>
+I, [2017-10-08T15:58:50.473609 #7344]  INFO -- default-centos: Starting Chef Client, version 13.5.3
+I, [2017-10-08T15:58:50.713766 #7344]  INFO -- default-centos: [2017-10-08T15:58:50+00:00] WARN: Plugin Network: unable to detect ipaddress
+I, [2017-10-08T15:58:50.713820 #7344]  INFO -- default-centos: [2017-10-08T15:58:50+00:00] WARN: Plugin Network: unable to detect ipaddress
+I, [2017-10-08T15:58:51.259904 #7344]  INFO -- default-centos: Creating a new client identity for default-centos using the validator key.
+I, [2017-10-08T15:58:51.564438 #7344]  INFO -- default-centos: resolving cookbooks for run list: ["apache::default"]
+I, [2017-10-08T15:58:51.566289 #7344]  INFO -- default-centos: Synchronizing Cookbooks:
+I, [2017-10-08T15:58:51.574631 #7344]  INFO -- default-centos:   - apache (0.1.0)
+I, [2017-10-08T15:58:51.574683 #7344]  INFO -- default-centos: Installing Cookbook Gems:
+I, [2017-10-08T15:58:51.574760 #7344]  INFO -- default-centos: Compiling Cookbooks...
+I, [2017-10-08T15:58:51.576379 #7344]  INFO -- default-centos: Converging 5 resources
+I, [2017-10-08T15:58:51.576429 #7344]  INFO -- default-centos: Recipe: apache::server
+I, [2017-10-08T15:59:00.163953 #7344]  INFO -- default-centos:   * yum_package[httpd] action install
+I, [2017-10-08T15:59:00.164056 #7344]  INFO -- default-centos:     - install version 2.4.6-67.el7.centos.2 of package httpd
+I, [2017-10-08T15:59:01.019641 #7344]  INFO -- default-centos:   * yum_package[tree] action install
+I, [2017-10-08T15:59:01.019690 #7344]  INFO -- default-centos:     - install version 1.6.0-10.el7 of package tree
+I, [2017-10-08T15:59:01.019705 #7344]  INFO -- default-centos:   * file[/var/www/html/index.html] action create
+I, [2017-10-08T15:59:01.027128 #7344]  INFO -- default-centos:     - create new file /var/www/html/index.html
+I, [2017-10-08T15:59:01.027183 #7344]  INFO -- default-centos:     - update content in file /var/www/html/index.html from none to 2c93e2
+I, [2017-10-08T15:59:01.027200 #7344]  INFO -- default-centos:     --- /var/www/html/index.html	2017-10-08 15:59:01.017660106 +0000
+I, [2017-10-08T15:59:01.027213 #7344]  INFO -- default-centos:     +++ /var/www/html/.chef-index20171008-245-1fhj68.html	2017-10-08 15:59:01.017660106 +0000
+I, [2017-10-08T15:59:01.027223 #7344]  INFO -- default-centos:     @@ -1 +1,2 @@
+I, [2017-10-08T15:59:01.027233 #7344]  INFO -- default-centos:     + <h1> This is test Website </h1> 
+I, [2017-10-08T15:59:01.118481 #7344]  INFO -- default-centos:   * service[httpd] action enable
+I, [2017-10-08T15:59:01.118559 #7344]  INFO -- default-centos:     - enable service service[httpd]
+I, [2017-10-08T15:59:01.239806 #7344]  INFO -- default-centos:   * service[httpd] action start
+I, [2017-10-08T15:59:01.239862 #7344]  INFO -- default-centos:     - start service service[httpd]
+I, [2017-10-08T15:59:01.239878 #7344]  INFO -- default-centos:   * file[/etc/motd] action create
+I, [2017-10-08T15:59:01.239890 #7344]  INFO -- default-centos:     - update content in file /etc/motd from e3b0c4 to bbe85e
+I, [2017-10-08T15:59:01.239901 #7344]  INFO -- default-centos:     --- /etc/motd	2013-06-07 14:31:32.000000000 +0000
+I, [2017-10-08T15:59:01.239912 #7344]  INFO -- default-centos:     +++ /etc/.chef-motd20171008-245-4z1700	2017-10-08 15:59:01.226661609 +0000
+I, [2017-10-08T15:59:01.239922 #7344]  INFO -- default-centos:     @@ -1 +1,10 @@
+I, [2017-10-08T15:59:01.239933 #7344]  INFO -- default-centos:     + Property of Mastan 
+I, [2017-10-08T15:59:01.239962 #7344]  INFO -- default-centos:     +
+I, [2017-10-08T15:59:01.239973 #7344]  INFO -- default-centos:     +
+I, [2017-10-08T15:59:01.239983 #7344]  INFO -- default-centos:     +        IPADDRESS: 
+I, [2017-10-08T15:59:01.239993 #7344]  INFO -- default-centos:     +        HOSTNAME: e93a5f796b89
+I, [2017-10-08T15:59:01.240003 #7344]  INFO -- default-centos:     +        INMEMORY: 1016232kB
+I, [2017-10-08T15:59:01.240013 #7344]  INFO -- default-centos:     +        CPU: 2592.002
+I, [2017-10-08T15:59:01.240023 #7344]  INFO -- default-centos:     +        
+I, [2017-10-08T15:59:01.240032 #7344]  INFO -- default-centos:     + 
+I, [2017-10-08T15:59:01.268594 #7344]  INFO -- default-centos: 
+I, [2017-10-08T15:59:01.268650 #7344]  INFO -- default-centos: Running handlers:
+I, [2017-10-08T15:59:01.268675 #7344]  INFO -- default-centos: Running handlers complete
+I, [2017-10-08T15:59:01.268695 #7344]  INFO -- default-centos: Chef Client finished, 6/6 resources updated in 10 seconds
+I, [2017-10-08T15:59:01.296916 #7344]  INFO -- default-centos: Finished converging <default-centos> (0m30.71s).
